@@ -1,6 +1,10 @@
 {
   "Replace": {
     "/Users/jarrettkuklis/go/go1.20.1/src/runtime/os_windows.go": "/Users/jarrettkuklis/Documents/GolandProjects/smallestgo/src/os_windows.go",
+    "/Users/jarrettkuklis/go/go1.20.1/src/runtime/race0.go": "/Users/jarrettkuklis/Documents/GolandProjects/smallestgo/src/race0.go",
+    "/Users/jarrettkuklis/go/go1.20.1/src/runtime/covermeta.go": "/Users/jarrettkuklis/Documents/GolandProjects/smallestgo/src/covermeta.go",
+    "/Users/jarrettkuklis/go/go1.20.1/src/runtime/create_file_nounix.go": "/Users/jarrettkuklis/Documents/GolandProjects/smallestgo/src/create_file_nounix.go",
+    "/Users/jarrettkuklis/go/go1.20.1/src/runtime/defs_windows_arm64.go": "/Users/jarrettkuklis/Documents/GolandProjects/smallestgo/src/defs_windows_arm64.go",
     "/Users/jarrettkuklis/go/go1.20.1/src/runtime/asan0.go": "/Users/jarrettkuklis/Documents/GolandProjects/smallestgo/src/asan0.go",
     "/Users/jarrettkuklis/go/go1.20.1/src/runtime/msan0.go": "/Users/jarrettkuklis/Documents/GolandProjects/smallestgo/src/msan0.go",
     "/Users/jarrettkuklis/go/go1.20.1/src/runtime/cgo.go": "/Users/jarrettkuklis/Documents/GolandProjects/smallestgo/src/cgo.go",

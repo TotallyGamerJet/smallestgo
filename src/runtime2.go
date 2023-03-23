@@ -34,19 +34,8 @@ func (_ guintptr) set(_ *g) {}
 type _func struct {
 }
 
-var isarchive bool
-
 type iface struct {
 }
 
 type eface struct {
-}
-type p struct {
-}
-
-type waitReason uint8
-
-type gobuf struct {
-}
-type funcval struct {
 }
