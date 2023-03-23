@@ -1,6 +1,7 @@
 {
   "Replace": {
     "/Users/jarrettkuklis/go/go1.20.1/src/runtime/os_windows.go": "/Users/jarrettkuklis/Documents/GolandProjects/smallestgo/src/os_windows.go",
+    "/Users/jarrettkuklis/go/go1.20.1/src/runtime/sigqueue_note.go": "/Users/jarrettkuklis/Documents/GolandProjects/smallestgo/src/sigqueue_note.go",
     "/Users/jarrettkuklis/go/go1.20.1/src/runtime/type.go": "/Users/jarrettkuklis/Documents/GolandProjects/smallestgo/src/type.go",
     "/Users/jarrettkuklis/go/go1.20.1/src/runtime/runtime.go": "/Users/jarrettkuklis/Documents/GolandProjects/smallestgo/src/runtime.go",
     "/Users/jarrettkuklis/go/go1.20.1/src/runtime/runtime_boring.go": "/Users/jarrettkuklis/Documents/GolandProjects/smallestgo/src/runtime_boring.go",
@@ -12,6 +13,7 @@
     "/Users/jarrettkuklis/go/go1.20.1/src/runtime/unsafe.go": "/Users/jarrettkuklis/Documents/GolandProjects/smallestgo/src/unsafe.go",
     "/Users/jarrettkuklis/go/go1.20.1/src/runtime/os_windows_arm64.go": "/Users/jarrettkuklis/Documents/GolandProjects/smallestgo/src/os_windows_arm64.go",
     "/Users/jarrettkuklis/go/go1.20.1/src/runtime/rt0_windows_arm64.s": "/Users/jarrettkuklis/Documents/GolandProjects/smallestgo/src/rt0_windows_arm64.s",
+    "/Users/jarrettkuklis/go/go1.20.1/src/runtime/sys_windows_arm64.s": "/Users/jarrettkuklis/Documents/GolandProjects/smallestgo/src/sys_windows_arm64.s",
     "/Users/jarrettkuklis/go/go1.20.1/src/runtime/symtab.go": "/Users/jarrettkuklis/Documents/GolandProjects/smallestgo/src/symtab.go",
     "/Users/jarrettkuklis/go/go1.20.1/src/runtime/asm_arm64.s": "/Users/jarrettkuklis/Documents/GolandProjects/smallestgo/src/asm_arm64.s",
     "/Users/jarrettkuklis/go/go1.20.1/src/runtime/runtime2.go": "/Users/jarrettkuklis/Documents/GolandProjects/smallestgo/src/runtime2.go",
