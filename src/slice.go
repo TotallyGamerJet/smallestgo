@@ -3,17 +3,7 @@ package runtime
 import "unsafe"
 
 type slice struct {
-	array unsafe.Pointer
-	len   int
-	cap   int
-}
-
-type notInHeap struct{}
-
-type notInHeapSlice struct {
-	array *notInHeap
-	len   int
-	cap   int
+	array uintptr
 }
 
 // builtin
