@@ -98,9 +98,7 @@ func strequal(p, q unsafe.Pointer) bool {
 
 // builtin
 func nilinterequal(p, q unsafe.Pointer) bool {
-	x := *(*eface)(p)
-	y := *(*eface)(q)
-	return x._type == y._type && efaceeq(x._type, x.data, y.data)
+	return false
 }
 
 func efaceeq(t *_type, x, y unsafe.Pointer) bool { return false }
