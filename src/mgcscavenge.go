@@ -67,11 +67,10 @@ type scavengeIndex struct {
 	min, max   atomic.Int32
 }
 
-func bgscavenge(c chan int)                                                  {}
-func (p *pageAlloc) scavenge(nbytes uintptr, shouldStop func() bool) uintptr { return 0 }
-func gcPaceScavenger(memoryLimit int64, heapGoal, lastHeapGoal uint64)       {}
-func heapRetained() uint64                                                   { return 0 }
-func printScavTrace(released uintptr, forced bool)                           {}
+func bgscavenge(c chan int)                                            {}
+func gcPaceScavenger(memoryLimit int64, heapGoal, lastHeapGoal uint64) {}
+func heapRetained() uint64                                             { return 0 }
+func printScavTrace(released uintptr, forced bool)                     {}
 
 var scavenger scavengerState
 
