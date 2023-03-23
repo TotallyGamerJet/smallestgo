@@ -1,3 +1,1 @@
 package runtime
-
-func block() {}
