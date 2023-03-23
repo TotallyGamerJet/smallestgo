@@ -1,6 +1,9 @@
 {
   "Replace": {
     "/Users/jarrettkuklis/go/go1.20.1/src/runtime/os_windows.go": "/Users/jarrettkuklis/Documents/GolandProjects/smallestgo/src/os_windows.go",
+    "/Users/jarrettkuklis/go/go1.20.1/src/runtime/asan0.go": "/Users/jarrettkuklis/Documents/GolandProjects/smallestgo/src/asan0.go",
+    "/Users/jarrettkuklis/go/go1.20.1/src/runtime/msan0.go": "/Users/jarrettkuklis/Documents/GolandProjects/smallestgo/src/msan0.go",
+    "/Users/jarrettkuklis/go/go1.20.1/src/runtime/cgo.go": "/Users/jarrettkuklis/Documents/GolandProjects/smallestgo/src/cgo.go",
     "/Users/jarrettkuklis/go/go1.20.1/src/runtime/exithook.go": "/Users/jarrettkuklis/Documents/GolandProjects/smallestgo/src/exithook.go",
     "/Users/jarrettkuklis/go/go1.20.1/src/runtime/hash64.go": "/Users/jarrettkuklis/Documents/GolandProjects/smallestgo/src/hash64.go",
     "/Users/jarrettkuklis/go/go1.20.1/src/runtime/write_err.go": "/Users/jarrettkuklis/Documents/GolandProjects/smallestgo/src/write_err.go",

@@ -274,12 +274,10 @@ type gcControllerState struct {
 	// Because the runtime is responsible for managing a memory limit, it's
 	// useful to couple these stats more tightly to the gcController, which
 	// is intimately connected to how that memory limit is maintained.
-	heapInUse    sysMemStat    // bytes in mSpanInUse spans
-	heapReleased sysMemStat    // bytes released to the OS
-	heapFree     sysMemStat    // bytes not in any span, but not released to the OS
-	totalAlloc   atomic.Uint64 // total bytes allocated
-	totalFree    atomic.Uint64 // total bytes freed
-	mappedReady  atomic.Uint64 // total virtual memory in the Ready state (see mem.go).
+
+	totalAlloc  atomic.Uint64 // total bytes allocated
+	totalFree   atomic.Uint64 // total bytes freed
+	mappedReady atomic.Uint64 // total virtual memory in the Ready state (see mem.go).
 
 	// test indicates that this is a test-only copy of gcControllerState.
 	test bool
@@ -287,19 +285,17 @@ type gcControllerState struct {
 	_ cpu.CacheLinePad
 }
 
-func (c *gcControllerState) addGlobals(amount int64)                                      {}
-func (c *gcControllerState) init(gcPercent int32, memoryLimit int64)                      {}
-func readGOGC() int32                                                                     { return 0 }
-func readGOMEMLIMIT() int64                                                               { return 0 }
-func (c *gcControllerState) trigger() (uint64, uint64)                                    { return 0, 0 }
-func (c *gcControllerState) startCycle(markStartTime int64, procs int, trigger gcTrigger) {}
-func (c *gcControllerState) endCycle(now int64, procs int, userForced bool)               {}
+func (c *gcControllerState) addGlobals(amount int64)                        {}
+func (c *gcControllerState) init(gcPercent int32, memoryLimit int64)        {}
+func readGOGC() int32                                                       { return 0 }
+func readGOMEMLIMIT() int64                                                 { return 0 }
+func (c *gcControllerState) trigger() (uint64, uint64)                      { return 0, 0 }
+func (c *gcControllerState) endCycle(now int64, procs int, userForced bool) {}
 
 //go:systemstack
-func gcControllerCommit()                                                         {}
-func (c *gcControllerState) markWorkerStop(mode gcMarkWorkerMode, duration int64) {}
-func (c *gcControllerState) resetLive(bytesMarked uint64)                         {}
-func (c *gcControllerState) findRunnableGCWorker(pp *p, now int64) (*g, int64)    { return nil, 0 }
+func gcControllerCommit()                                                      {}
+func (c *gcControllerState) resetLive(bytesMarked uint64)                      {}
+func (c *gcControllerState) findRunnableGCWorker(pp *p, now int64) (*g, int64) { return nil, 0 }
 
 //go:nosplit
 func (c *gcControllerState) addIdleMarkWorker() bool { return false }
