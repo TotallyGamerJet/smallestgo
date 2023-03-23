@@ -1,7 +1,5 @@
 package runtime
 
-import "unsafe"
-
 type notInHeap struct{}
 
 const (
@@ -114,13 +112,6 @@ const (
 	minLegalPointer uintptr = 4096
 )
 
-type persistentAlloc struct {
-	base *notInHeap
-	off  uintptr
-}
-
-var zerobase uintptr
-
 type linearAlloc struct {
 	next   uintptr // next free byte
 	mapped uintptr // one byte past end of mapped space
@@ -128,12 +119,3 @@ type linearAlloc struct {
 
 	mapMemory bool // transition memory from Reserved to Ready if true
 }
-
-func mallocgc(size uintptr, typ *_type, needzero bool) unsafe.Pointer         { return nil }
-func persistentalloc(size, align uintptr, sysStat *sysMemStat) unsafe.Pointer { return nil }
-func mallocinit()                                                             {}
-
-var physPageSize uintptr
-
-// builtin
-func newobject(typ *_type) unsafe.Pointer { return nil }

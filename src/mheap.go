@@ -8,15 +8,9 @@ import (
 )
 
 type gcBits struct {
-	_ sys.NotInHeap
-	x uint8
 }
 
 type special struct {
-	_      sys.NotInHeap
-	next   *special // linked list in span
-	offset uint16   // span offset of object
-	kind   byte     // kind of special
 }
 
 const (
@@ -65,8 +59,6 @@ type mspan struct {
 
 	startAddr uintptr // address of first byte of span aka s.base()
 	npages    uintptr // number of pages in span
-
-	manualFreeList gclinkptr // list of free objects in mSpanManual spans
 
 	// freeindex is the slot index between 0 and nelems at which to begin scanning
 	// for the next free object in this span.
