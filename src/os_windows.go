@@ -4,8 +4,6 @@ import "unsafe"
 
 type stdFunction unsafe.Pointer
 
-var _QueryPerformanceCounter, _TlsAlloc stdFunction
-
 func usleep2(dt int32)
 
 type sigset struct{}
