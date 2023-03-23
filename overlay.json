@@ -2,6 +2,8 @@
   "Replace": {
     "/Users/jarrettkuklis/go/go1.20.1/src/runtime/os_windows.go": "/Users/jarrettkuklis/Documents/GolandProjects/smallestgo/src/os_windows.go",
     "/Users/jarrettkuklis/go/go1.20.1/src/runtime/type.go": "/Users/jarrettkuklis/Documents/GolandProjects/smallestgo/src/type.go",
+    "/Users/jarrettkuklis/go/go1.20.1/src/runtime/runtime.go": "/Users/jarrettkuklis/Documents/GolandProjects/smallestgo/src/runtime.go",
+    "/Users/jarrettkuklis/go/go1.20.1/src/runtime/runtime_boring.go": "/Users/jarrettkuklis/Documents/GolandProjects/smallestgo/src/runtime_boring.go",
     "/Users/jarrettkuklis/go/go1.20.1/src/runtime/time_nofake.go": "/Users/jarrettkuklis/Documents/GolandProjects/smallestgo/src/time_nofake.go",
     "/Users/jarrettkuklis/go/go1.20.1/src/runtime/extern.go": "/Users/jarrettkuklis/Documents/GolandProjects/smallestgo/src/extern.go",
     "/Users/jarrettkuklis/go/go1.20.1/src/runtime/typekind.go": "/Users/jarrettkuklis/Documents/GolandProjects/smallestgo/src/typekind.go",
