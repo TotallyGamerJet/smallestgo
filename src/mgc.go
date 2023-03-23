@@ -1,4 +1,3 @@
 package runtime
 
-var writeBarrier struct {
-}
+var writeBarrier struct{}
