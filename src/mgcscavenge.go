@@ -87,9 +87,6 @@ type scavengerState struct {
 	// parked is whether or not the scavenger is parked.
 	parked bool
 
-	// timer is the timer used for the scavenger to sleep.
-	timer *timer
-
 	// sysmonWake signals to sysmon that it should wake the scavenger.
 	sysmonWake atomic.Uint32
 
