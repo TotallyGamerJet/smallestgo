@@ -62,7 +62,6 @@ type scavengeIndex struct {
 	// iteration like uint32, but we lack the bit twiddling intrinsics. We'd need to either
 	// copy them from math/bits or fix the fact that we can't import math/bits' code from
 	// the runtime due to compiler instrumentation.
-	searchAddr atomicOffAddr
 	chunks     []atomic.Uint8
 	minHeapIdx atomic.Int32
 	min, max   atomic.Int32
