@@ -7,7 +7,6 @@ package runtime
 import (
 	"internal/goarch"
 	"runtime/internal/atomic"
-	"runtime/internal/sys"
 	"unsafe"
 )
 
@@ -489,9 +488,6 @@ type moduledata struct {
 // a package against any previously loaded version of the package.
 // This is done in plugin.lastmoduleinit.
 type modulehash struct {
-	modulename   string
-	linktimehash string
-	runtimehash  *string
 }
 
 // pinnedTypemaps are the map[typeOff]*_type from the moduledata objects.
@@ -935,92 +931,37 @@ func funcMaxSPDelta(f funcInfo) int32 {
 }
 
 func pcdatastart(f funcInfo, table uint32) uint32 {
-	return *(*uint32)(add(unsafe.Pointer(&f.nfuncdata), unsafe.Sizeof(f.nfuncdata)+uintptr(table)*4))
+	return 0
 }
 
 func pcdatavalue(f funcInfo, table uint32, targetpc uintptr, cache *pcvalueCache) int32 {
-	if table >= f.npcdata {
-		return -1
-	}
-	r, _ := pcvalue(f, pcdatastart(f, table), targetpc, cache, true)
-	return r
+	return 0
 }
 
 func pcdatavalue1(f funcInfo, table uint32, targetpc uintptr, cache *pcvalueCache, strict bool) int32 {
-	if table >= f.npcdata {
-		return -1
-	}
-	r, _ := pcvalue(f, pcdatastart(f, table), targetpc, cache, strict)
-	return r
+	return 0
 }
 
 // Like pcdatavalue, but also return the start PC of this PCData value.
 // It doesn't take a cache.
 func pcdatavalue2(f funcInfo, table uint32, targetpc uintptr) (int32, uintptr) {
-	if table >= f.npcdata {
-		return -1, 0
-	}
-	return pcvalue(f, pcdatastart(f, table), targetpc, nil, true)
+	return 0, 0
 }
 
 // funcdata returns a pointer to the ith funcdata for f.
 // funcdata should be kept in sync with cmd/link:writeFuncs.
 func funcdata(f funcInfo, i uint8) unsafe.Pointer {
-	if i < 0 || i >= f.nfuncdata {
-		return nil
-	}
-	base := f.datap.gofunc // load gofunc address early so that we calculate during cache misses
-	p := uintptr(unsafe.Pointer(&f.nfuncdata)) + unsafe.Sizeof(f.nfuncdata) + uintptr(f.npcdata)*4 + uintptr(i)*4
-	off := *(*uint32)(unsafe.Pointer(p))
-	// Return off == ^uint32(0) ? 0 : f.datap.gofunc + uintptr(off), but without branches.
-	// The compiler calculates mask on most architectures using conditional assignment.
-	var mask uintptr
-	if off == ^uint32(0) {
-		mask = 1
-	}
-	mask--
-	raw := base + uintptr(off)
-	return unsafe.Pointer(raw & mask)
+	return nil
 }
 
 // step advances to the next pc, value pair in the encoded table.
 func step(p []byte, pc *uintptr, val *int32, first bool) (newp []byte, ok bool) {
-	// For both uvdelta and pcdelta, the common case (~70%)
-	// is that they are a single byte. If so, avoid calling readvarint.
-	uvdelta := uint32(p[0])
-	if uvdelta == 0 && !first {
-		return nil, false
-	}
-	n := uint32(1)
-	if uvdelta&0x80 != 0 {
-		n, uvdelta = readvarint(p)
-	}
-	*val += int32(-(uvdelta & 1) ^ (uvdelta >> 1))
-	p = p[n:]
-
-	pcdelta := uint32(p[0])
-	n = 1
-	if pcdelta&0x80 != 0 {
-		n, pcdelta = readvarint(p)
-	}
-	p = p[n:]
-	*pc += uintptr(pcdelta * sys.PCQuantum)
 	return p, true
 }
 
 // readvarint reads a varint from p.
 func readvarint(p []byte) (read uint32, val uint32) {
-	var v, shift, n uint32
-	for {
-		b := p[n]
-		n++
-		v |= uint32(b&0x7F) << (shift & 31)
-		if b&0x80 == 0 {
-			break
-		}
-		shift += 7
-	}
-	return n, v
+	return
 }
 
 type stackmap struct {
