@@ -271,6 +271,8 @@ func schedinit() {
 		// to ensure runtime·modinfo is kept in the resulting binary.
 		modinfo = ""
 	}
+	main := main_main
+	main()
 }
 
 func dumpgstatus(gp *g) {
