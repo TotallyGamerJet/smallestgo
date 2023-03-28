@@ -8,12 +8,15 @@
 #include "funcdata.h"
 #include "textflag.h"
 
-
-TEXT runtime·morestack_noctxt(SB),NOSPLIT|NOFRAME,$0-0
+TEXT runtime·morestack_noctxt(SB), NOSPLIT|NOFRAME, $0-0
 	RET
 
 // func memhash32(p unsafe.Pointer, h uintptr) uintptr
-TEXT runtime·memhash32<ABIInternal>(SB),NOSPLIT|NOFRAME,$0-24
+TEXT runtime·memhash32<ABIInternal>(SB), NOSPLIT|NOFRAME, $0-24
 	RET
 
-
+// This is the entry point for the program from the
+// kernel for an ordinary -buildmode=exe program.
+TEXT _rt0_arm64_windows(SB), NOSPLIT|NOFRAME, $0
+	BL runtime·schedinit<ABIInternal>(SB)
+	UNDEF
